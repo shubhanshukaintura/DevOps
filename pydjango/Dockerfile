@@ -1,15 +1,19 @@
-# Use the official Python image
-FROM python:3.9
+# Dockerfile
+FROM python:3.9-slim
 
-# Set the working directory
+# Set environment variables
+ENV PYTHONUNBUFFERED 1
+ENV DJANGO_SETTINGS_MODULE=myproject.settings
+
+# Set work directory
 WORKDIR /app
 
 # Install dependencies
-COPY requirements.txt requirements.txt
+COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
-# Copy the project
-COPY . .
+# Copy project
+COPY . /app/
 
-# Run the tests
+# Run tests
 CMD ["pytest"]
