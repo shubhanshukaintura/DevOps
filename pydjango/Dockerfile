@@ -15,5 +15,5 @@ RUN pip install -r requirements.txt
 # Copy project
 COPY . /app/
 
-# Run tests
+# Run tests and ensure report directory is available
 CMD ["pytest", "--junitxml=reports/results.xml"]
