@@ -1,4 +1,4 @@
-# Dockerfile
+# subdirectory/Dockerfile
 FROM python:3.9-slim
 
 # Set environment variables
@@ -16,4 +16,4 @@ RUN pip install -r requirements.txt
 COPY . /app/
 
 # Run tests
-CMD ["pytest"]
+CMD ["pytest", "--junitxml=reports/results.xml"]
